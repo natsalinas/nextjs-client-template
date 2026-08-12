@@ -1,46 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 export function Hero() {
+  const { hero } = siteConfig;
+
   return (
-    <section className="overflow-hidden">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-8 md:min-h-[calc(100vh-73px)] md:grid-cols-2 md:gap-16 md:py-16 lg:px-8">
+    <section className="overflow-hidden px-6 pb-16 pt-8 sm:pb-20 sm:pt-12 lg:px-8 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left Content */}
-        <div className="max-w-xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-olive">
-            Orlando-Based Artist
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-olive">
+            {hero.eyebrow}
           </p>
 
-          <h1 className="font-heading text-5xl font-semibold leading-tight text-olive-dark sm:text-6xl lg:text-7xl">
-            The World of Rosa
+          <h1 className="mt-4 font-heading text-5xl font-semibold leading-tight text-olive-dark sm:text-6xl lg:text-7xl">
+            {hero.title}
           </h1>
 
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Through the world of Rosa, I explore growth, the divine feminine,
-            and the beauty of embracing each moment. Every rose tells a
-            different story.
+          <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
+            {hero.description}
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/gallery"
-              className="inline-flex items-center justify-center rounded-full bg-olive-dark px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-olive hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              href={hero.primaryCta.href}
+              className="inline-flex items-center justify-center rounded-md bg-olive-dark px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-olive hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Explore the Gallery
+              {hero.primaryCta.label}
             </Link>
 
             <Link
-              href="/commissions"
-              className="inline-flex items-center justify-center rounded-full border border-rose-dark px-6 py-3 text-sm font-semibold text-rose-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              href={hero.secondaryCta.href}
+              className="inline-flex items-center justify-center rounded-md border border-rose-dark px-6 py-3 text-sm font-semibold text-rose-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Commission a Piece
+              {hero.secondaryCta.label}
             </Link>
           </div>
         </div>
 
         {/* Right Image */}
         <div className="relative flex justify-center">
-          {/* Decorative background glow */}
           <div
             aria-hidden="true"
             className="absolute -bottom-10 -left-8 -z-10 h-56 w-56 rounded-full bg-rose/30 blur-3xl"
@@ -52,8 +52,8 @@ export function Hero() {
           />
 
           <Image
-            src="/images/hero-rosa.jpg"
-            alt="Rosa dancing through Spain"
+            src={hero.image}
+            alt={hero.imageAlt}
             width={650}
             height={900}
             priority
