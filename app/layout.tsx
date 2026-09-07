@@ -1,37 +1,29 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import {
-  Cormorant_Garamond,
-  Inter,
-} from "next/font/google";
+import { Inter } from "next/font/google";
+
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { siteConfig } from "@/config/site";
+
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-sans",
   subsets: ["latin"],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Nati Salinas Art",
-    template: "%s | Nati Salinas Art",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Orlando-based artist Nathalia Salinas explores everyday experiences, emotion, movement, and imagination through the World of Rosa.",
-  metadataBase: new URL("https://art.nati.studio"),
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.domain),
   openGraph: {
-    title: "Nati Salinas Art",
-    description:
-      "Explore the World of Rosa — original artwork, prints, and custom commissions by Orlando-based artist Nathalia Salinas.",
-    url: "https://art.nati.studio",
-    siteName: "Nati Salinas Art",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.domain,
+    siteName: siteConfig.name,
     type: "website",
   },
 };
@@ -43,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${cormorant.variable}`}>
+      <body className={inter.variable}>
         <Navbar />
         {children}
         <Footer />

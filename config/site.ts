@@ -1,37 +1,41 @@
 export const siteConfig = {
-  name: "Your Business Name",
-  legalName: "Your Name or Company",
+  name: "Company Name",
+  legalName: "Company Legal Name",
+
   description:
-    "A short description of your business, portfolio, or creative work.",
+    "A short description explaining what the company does and who it serves.",
+
   location: "City, State",
   domain: "https://example.com",
 
   hero: {
-    eyebrow: "Your Location or Tagline",
-    title: "Your Main Headline",
+    eyebrow: "Company Tagline",
+    title: "A Clear Headline About What You Do",
     description:
-      "Use this space to introduce your business and tell visitors what you do.",
+      "Briefly explain the company's services, value proposition, or mission.",
+
     image: "/images/hero.jpg",
-    imageAlt: "Featured image",
+    imageAlt: "Company featured image",
 
     primaryCta: {
-      label: "Explore",
-      href: "/gallery",
+      label: "Our Services",
+      href: "/services",
     },
 
     secondaryCta: {
-      label: "Get in Touch",
+      label: "Contact Us",
       href: "/contact",
     },
   },
 
   social: {
     instagram: "",
+    facebook: "",
     linkedin: "",
   },
 
   email: {
-    senderName: "Your Business Name",
+    senderName: "Company Name",
     senderAddress: "hello@example.com",
   },
 };

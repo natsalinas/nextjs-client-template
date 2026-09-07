@@ -39,11 +39,6 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-rose: var(--rose);
-  --color-rose-dark: var(--rose-dark);
-  --color-olive: var(--olive);
-  --color-olive-dark: var(--olive-dark);
-  --color-warm-white: var(--warm-white);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -83,12 +78,6 @@
   --ring: #b67a8a;
 
   --radius: 0.75rem;
-
-  --rose: #dca7b8;
-  --rose-dark: #b67a8a;
-  --olive: #6f7b52;
-  --olive-dark: #465138;
-  --warm-white: #f6f4f1;
 }
 
 .dark {
