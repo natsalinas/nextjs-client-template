@@ -25,14 +25,14 @@ export function Hero() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href={hero.primaryCta.href}
-              className="inline-flex items-center justify-center rounded-md bg-olive-dark px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-olive hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {hero.primaryCta.label}
             </Link>
 
             <Link
               href={hero.secondaryCta.href}
-              className="inline-flex items-center justify-center rounded-md border border-rose-dark px-6 py-3 text-sm font-semibold text-rose-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md border border-rose-dark px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {hero.secondaryCta.label}
             </Link>

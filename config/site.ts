@@ -10,11 +10,11 @@ export const siteConfig = {
 
   hero: {
     eyebrow: "Company Tagline",
-    title: "A Clear Headline About What You Do",
+    title: "Headline",
     description:
       "Briefly explain the company's services, value proposition, or mission.",
 
-    image: "/images/hero.jpg",
+    image: "/images/Template.png",
     imageAlt: "Company featured image",
 
     primaryCta: {

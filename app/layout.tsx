@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
