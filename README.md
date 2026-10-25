@@ -1,394 +1,104 @@
 # Next.js Client Website Template
 
-A reusable Next.js starter for building modern portfolio, creative, and small-business websites.
+A reusable, responsive website starter built with **Next.js, React, TypeScript, and Tailwind CSS**. Designed to make it easier to create consistent websites for small businesses and clients without rebuilding the same layout and configuration for every project.
 
-This project was created as a configurable foundation for future client websites. It provides a responsive layout, reusable components, centralized site configuration, and a structure designed to support server-side forms and AWS deployment.
-
-## Features
-
-- Next.js App Router
-- React and TypeScript
-- Responsive desktop, tablet, and mobile layouts
-- Reusable navigation, hero, footer, and content components
-- Centralized site and navigation configuration
-- Gallery and product/service page structure
-- Contact and request form architecture
-- Next.js API route support
-- AWS SES integration support
-- SEO metadata and social sharing support
-- AWS Amplify-ready deployment structure
-- Environment-based configuration for sensitive values
+The default design uses a sage-and-olive color palette inspired by BloomStack. Branding, content, and colors can be customized for each new project.
 
 ## Tech Stack
 
-### Frontend
+- **Next.js (App Router):** File-based routing, page layouts, and metadata
+- **React + TypeScript:** Reusable, typed UI components
+- **Tailwind CSS:** Responsive styling and CSS-based design tokens
+- **AWS SDK for JavaScript:** Foundation for future server-side email integration
+- **AWS Amplify:** Intended deployment platform
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Next.js Image Optimization
+## What's Included
 
-### Backend
+- Responsive homepage with a configurable hero section
+- About, Services, and Contact pages
+- Reusable navigation and footer
+- Centralized site information and navigation links
+- Configurable light and dark theme tokens
+- SEO metadata and Open Graph settings
+- Example service cards and contact information
 
-- Next.js Route Handlers
-- AWS SDK for JavaScript
-- Amazon SES
-
-### Deployment
-
-The template is designed to support deployment using:
-
-- AWS Amplify Hosting
-- Amazon Route 53
-- AWS IAM
-- Amazon SES
+**Current scope:** The Contact page displays configured contact details; it does not submit a form. An Amazon SES client is initialized in `lib/ses.ts`, but email delivery and API routes are not yet implemented.
 
 ## Project Structure
 
 ```text
-.
-├── app/
-│   ├── api/                 # Server-side API routes
-│   ├── about/               # About page
-│   ├── commissions/         # Request/service page
-│   ├── gallery/             # Gallery page
-│   ├── products/            # Products or offerings
-│   ├── globals.css          # Global styles and design tokens
-│   ├── layout.tsx           # Root layout and metadata
-│   └── page.tsx             # Homepage
-│
-├── components/
-│   ├── Footer.tsx
-│   ├── Hero.tsx
-│   ├── Navbar.tsx
-│   └── ...                  # Reusable UI components
-│
-├── config/
-│   ├── navigation.ts        # Navigation configuration
-│   └── site.ts              # Site branding and content
-│
-├── lib/                     # Shared utilities and service clients
-├── public/                  # Static images and assets
-├── .gitignore
-├── next.config.ts
-├── package.json
-├── tsconfig.json
-└── README.md
+app/
+  about/page.tsx          About page
+  services/page.tsx       Services page
+  contact/page.tsx        Contact page
+  layout.tsx              Shared layout and SEO metadata
+  page.tsx                Homepage
+  globals.css             Global styles and theme tokens
+components/
+  layout/                 Navbar and Footer
+  sections/               Hero and section components
+  cards/                  Reusable card components
+  forms/                  Form component directory
+config/
+  site.ts                 Company details, hero content, social links
+  navigation.ts           Navigation items
+lib/
+  ses.ts                  AWS SES client setup
+  utils.ts                Shared utilities
+public/images/            Static images
 ```
 
-## Getting Started
+Next.js maps files in `app/` to routes. Shared UI lives in `components/`, while `config/` separates business-specific content from presentation. This makes the starter easier to maintain and adapt.
 
-### 1. Clone the template
+## Run Locally
+
+**Requirements:** Node.js and npm compatible with the project's Next.js version.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/natsalinas/nextjs-client-template.git
 cd nextjs-client-template
-```
-
-### 2. Install dependencies
-
-```bash
 npm ci
-```
-
-### 3. Start the development server
-
-```bash
 npm run dev
 ```
 
-Open:
+Open [http://localhost:3000](http://localhost:3000).
 
-```text
-http://localhost:3000
-```
-
-## Customizing a New Website
-
-The goal of this template is to keep client-specific information separate from reusable application components.
-
-### Site Configuration
-
-Update:
-
-```text
-config/site.ts
-```
-
-This file contains general site information such as:
-
-- Business name
-- Legal/company name
-- Description
-- Location
-- Domain
-- Hero content
-- Social links
-- Email configuration
-
-Example:
-
-```ts
-export const siteConfig = {
-  name: "Your Business Name",
-  legalName: "Your Name or Company",
-  description: "A short description of the business.",
-  location: "City, State",
-  domain: "https://example.com",
-
-  hero: {
-    eyebrow: "Your Tagline",
-    title: "Your Main Headline",
-    description: "Introduce the business or brand here.",
-    image: "/images/hero.jpg",
-    imageAlt: "Featured image",
-
-    primaryCta: {
-      label: "Explore",
-      href: "/gallery",
-    },
-
-    secondaryCta: {
-      label: "Get in Touch",
-      href: "/contact",
-    },
-  },
-
-  social: {
-    instagram: "",
-    linkedin: "",
-  },
-
-  email: {
-    senderName: "Your Business Name",
-    senderAddress: "hello@example.com",
-  },
-};
-```
-
-### Navigation
-
-Update:
-
-```text
-config/navigation.ts
-```
-
-Example:
-
-```ts
-export const navigationLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/products", label: "Shop" },
-  { href: "/commissions", label: "Services" },
-];
-```
-
-This allows navigation items to be changed without modifying the Navbar component.
-
-## Images
-
-Static website images belong in:
-
-```text
-public/images/
-```
-
-For example:
-
-```text
-public/images/hero.jpg
-```
-
-can be referenced in Next.js as:
-
-```tsx
-<Image
-  src="/images/hero.jpg"
-  alt="Featured image"
-  width={650}
-  height={900}
-/>
-```
-
-Client-specific images should be replaced when creating a new website from the template.
-
-## Environment Variables
-
-Sensitive configuration must not be committed to Git.
-
-Create:
-
-```text
-.env.local
-```
-
-for local development when environment variables are required.
-
-A future `.env.example` can document required variables without containing secrets.
-
-For example:
-
-```env
-AWS_REGION=us-east-1
-SES_FROM_EMAIL=hello@example.com
-CONTACT_EMAIL=owner@example.com
-```
-
-Never commit:
-
-- AWS access keys
-- AWS secret access keys
-- SES SMTP credentials
-- Personal credentials
-- Production secrets
-
-Environment files are excluded from source control through `.gitignore`.
-
-## Email Architecture
-
-The template is designed to support server-side contact and request forms using Next.js Route Handlers and Amazon SES.
-
-```text
-Visitor
-   │
-   ▼
-Website Form
-   │
-   ▼
-Next.js API Route
-   │
-   ▼
-Amazon SES
-   │
-   ▼
-Email Notification
-```
-
-When deployed to AWS Amplify, an IAM compute role should be used to authorize the application to access SES rather than storing long-lived AWS credentials in the application.
-
-## Production Checks
-
-Before deploying a website created from this template, run:
+Other useful commands:
 
 ```bash
 npm run lint
-```
-
-Then:
-
-```bash
 npm run build
+npm run start
 ```
 
-Both should complete successfully before deployment.
+Run `npm run build` before deployment to check for production build issues.
 
-The website should also be tested at common mobile, tablet, and desktop viewport sizes.
+## Customize for a Client
 
-## Deployment
+1. **Brand and content:** Update `config/site.ts` with the company name, description, domain, contact details, hero text, and image.
+2. **Navigation:** Edit `config/navigation.ts` to change the site's menu.
+3. **Colors:** Change the CSS variables in `app/globals.css` (including `--primary`, `--secondary`, and `--accent`).
+4. **Pages:** Replace the example content in `app/about/page.tsx`, `app/services/page.tsx`, and `app/contact/page.tsx`.
+5. **Images:** Replace the placeholder assets in `public/images/` and update their paths in the site configuration.
+6. **SEO:** Set the real domain and business description in `config/site.ts`; the root layout uses these values for metadata.
 
-The recommended deployment architecture is:
+Keep client-specific assets and credentials out of the starter repository.
 
-```text
-GitHub
-   │
-   ▼
-AWS Amplify Hosting
-   │
-   ├── Next.js Application
-   │
-   └── Next.js API Routes
-             │
-             ▼
-           AWS IAM
-             │
-             ▼
-         Amazon SES
+## Architecture and Deployment
 
-Custom Domain
-     │
-     ▼
-Amazon Route 53
-     │
-     ▼
-AWS Amplify
-```
+The frontend is built with Next.js App Router. Pages and reusable React components render the interface, while centralized configuration supplies site-specific content. Tailwind theme tokens keep the design consistent across components.
 
-The production branch can be connected directly to AWS Amplify for automatic deployments.
+The project is structured for future deployment on **AWS Amplify Hosting**. A future contact form could use a Next.js Route Handler to validate requests and send email through **Amazon SES**, with access granted through an IAM role. That workflow is **not implemented yet**.
 
-## Creating a New Client Project
+For production use, configure the domain, environment variables, access permissions, and any backend services for the specific client. Never commit API keys or AWS credentials.
 
-A typical workflow is:
+## Next Steps
 
-```text
-Clone template
-     ↓
-Create new repository
-     ↓
-Update site configuration
-     ↓
-Update navigation
-     ↓
-Replace images
-     ↓
-Update page content
-     ↓
-Configure forms
-     ↓
-Configure AWS services
-     ↓
-Run lint/build
-     ↓
-Deploy
-```
+- Implement and validate a contact form with a server-side API route
+- Connect email notifications through Amazon SES
+- Add accessibility and responsive QA
+- Test production builds and configure AWS Amplify deployment
 
-The template should remain generic. Client-specific code and assets should live in the new project created from the template rather than being committed back into the template repository.
+---
 
-## Template Roadmap
-
-### Foundation
-
-- [x] Reusable Next.js project structure
-- [x] Centralized site configuration
-- [x] Centralized navigation configuration
-- [x] Configurable Hero
-- [x] Configurable Footer
-
-### Design System
-
-- [ ] Replace project-specific color names with generic design tokens
-- [ ] Create configurable typography
-- [ ] Add generic placeholder assets
-
-### Content
-
-- [ ] Generalize About page
-- [ ] Generalize Gallery
-- [ ] Generalize Products/Services
-- [ ] Generalize contact/request experience
-- [ ] Move repeated content into reusable data files
-
-### Backend
-
-- [ ] Generalize contact API route
-- [ ] Add reusable SES configuration
-- [ ] Add `.env.example`
-- [ ] Add server-side form validation
-- [ ] Improve error handling
-
-### Production
-
-- [ ] Generic metadata configuration
-- [ ] Generic favicon and Open Graph placeholders
-- [ ] Accessibility review
-- [ ] Responsive QA
-- [ ] AWS Amplify deployment documentation
-
-## Purpose
-
-This repository is intended to serve as a maintainable starting point for future web projects rather than a finished client website.
-
-Reusable application architecture should remain in this repository, while branding, content, imagery, domains, and client-specific functionality should be implemented in individual project repositories.
+Built as a reusable foundation for client websites, with an emphasis on component reuse, separation of concerns, and maintainable configuration.
