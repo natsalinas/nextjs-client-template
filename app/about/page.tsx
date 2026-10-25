@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -11,24 +10,23 @@ export default function AboutPage() {
               About
             </p>
 
-            <h1 className="mt-4 font-heading text-5xl font-semibold leading-tight sm:text-6xl">
-              Owner Name
+            <h1 className="mt-4 text-5xl font-semibold leading-tight sm:text-6xl">
+              About Our Company
             </h1>
           </div>
           <div className="mt-10 max-w-3xl">
             <div className="space-y-5 text-lg leading-8 text-muted-foreground">
               <p>
-                Hi I&apos;m [Your Name]. I&apos;m passionate about creating
-                meaningful work, exploring new ideas, and finding inspiration in
-                the everyday. This space is where I share a little of what I
-                create and what inspires me.
+                Introduce your company, explain what you do, and share the values
+                that guide your work. Replace this placeholder with a concise
+                story about your team, customers, and mission.
               </p>
             </div>
           </div>
           <div className="relative mt-10 mx-auto max-w-2xl">
             <div
               aria-hidden="true"
-              className="absolute -left-6 -top-6 h-44 w-44 rounded-full bg-rose/20 blur-3xl"
+              className="absolute -left-6 -top-6 h-44 w-44 rounded-full bg-primary/15 blur-3xl"
             />
 
             <div
