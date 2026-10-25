@@ -16,7 +16,7 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="font-heading text-2xl font-semibold text-olive-dark"
+          className="text-2xl font-semibold text-foreground"
         >
           {siteConfig.name}
         </Link>
@@ -26,7 +26,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground transition-colors hover:text-rose focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {link.label}
             </Link>
@@ -55,7 +55,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground transition-colors hover:text-rose"
+                className="text-sm font-medium text-foreground transition-colors hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
